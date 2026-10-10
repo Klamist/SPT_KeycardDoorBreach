@@ -17,8 +17,8 @@ namespace Ciallo.KeycardDoorBreach
     public class Plugin : BaseUnityPlugin
     {
         public const string PluginGuid = "ciallo.keycarddoorbreach";
-        //public const string PluginName = "KeycardDoor simplified + 100% DoorBreach";
-        public const string PluginName = "刷卡门简化 + 100% 踹门成功";
+        public const string PluginName = "KeycardDoor simplified + 100% DoorBreach";
+        //public const string PluginName = "刷卡门简化 + 100% 踹门成功";
         public const string PluginVersion = "1.1.0";
 
         internal static ManualLogSource Log;
@@ -35,8 +35,8 @@ namespace Ciallo.KeycardDoorBreach
                 "General",
                 "AlwaysBreachSuccess",
                 false,
-                //"Forced Door Breaching Success"
-                "踹门必定成功"
+                "Forced Door Breaching Success"
+            //"踹门必定成功"
             );
 
             try
@@ -71,7 +71,7 @@ namespace Ciallo.KeycardDoorBreach
         [HarmonyTargetMethod]
         private static MethodBase TargetMethod()
         {
-            var target = typeof(GetActionsClass)
+            var target = typeof(InteractionContextHelper)
                 .GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .FirstOrDefault(m =>
                 {
